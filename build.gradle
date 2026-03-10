@@ -4,7 +4,7 @@ plugins {
     alias libs.plugins.sentry
 }
 
-group 'org.geysermc.discordbot'
+group 'net.netherlink.discordbot'
 version '3.0'
 
 repositories {
@@ -94,14 +94,14 @@ jar {
     manifest {
         attributes (
             'Class-Path': configurations.runtimeClasspath.files.collect { it.getName() }.join(' '),
-            'Main-Class': 'org.geysermc.discordbot.GeyserBot'
+            'Main-Class': 'net.netherlink.discordbot.NetherLinkBot'
         )
     }
 }
 
 // Allow running with `./gradlew run` task
 application {
-    mainClass = 'org.geysermc.discordbot.GeyserBot'
+    mainClass = 'net.netherlink.discordbot.NetherLinkBot'
 }
 
 test {
@@ -114,9 +114,6 @@ java {
 }
 
 sentry {
-    includeSourceContext = System.getenv("SENTRY_AUTH_TOKEN") != null
-
-    org = "geysermc"
-    projectName = "geyserdiscordbot"
-    authToken = System.getenv("SENTRY_AUTH_TOKEN")
+    org = "netherdev"
+    projectName = "netherlinkdiscordbot"
 }
