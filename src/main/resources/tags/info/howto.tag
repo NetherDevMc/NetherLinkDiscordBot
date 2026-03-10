@@ -1,5 +1,5 @@
 type: text
-aliases: netherlink
+aliases: netherlink, ht
 
 ---
 
