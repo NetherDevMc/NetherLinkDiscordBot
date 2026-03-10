@@ -35,7 +35,7 @@ If the server isn't appearing on your console, try these steps:
 → You can also try reloading the "Servers" tab by hitting B (when in the "Servers" tab) until you're back to the main screen, then go back to servers, and try that a couple of times until it hopefully works.
 → Restarting the game.
 
-Thank you BedrockConnect for providing the troubleshooting steps:
+Thank you, BedrockConnect, for providing the troubleshooting steps:  
 https://github.com/Pugmatt/BedrockConnect/wiki/Troubleshooting
 
 **📱 Still Having Issues?**
