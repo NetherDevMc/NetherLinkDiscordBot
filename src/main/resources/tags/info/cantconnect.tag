@@ -22,7 +22,7 @@ If the server isn't appearing on your console, try these steps:
 **⚠️ Common Issues:**
 
 **"No route found for user"**
-→ (Update Me) Make sure your public ip matches your phones public ip.
+→ Make sure your public ip matches your phones public ip.
 
 **"Unable to connect to NetherLink relay server"**
 → Check your internet connection - the relay server might be temporarily offline
