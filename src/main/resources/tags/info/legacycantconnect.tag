@@ -1,5 +1,5 @@
 type: text
-aliases: help, cc
+aliases: lhelp, lcc
 
 ---
 
