@@ -9,9 +9,8 @@ If the server isn't appearing on your console, try these steps:
 
 **✅ Basic Checks:**
 1. **Same WiFi Network** - Your phone/tablet and console MUST be on the same WiFi
-2. **Bedrock Profile Selected** - Make sure you've created and selected a Bedrock profile in NetherLink
-3. **Correct Server Address** - Double-check the IP and port (default: 19132)
-4. **Broadcasting Active** - Verify NetherLink shows "Broadcasting" status
+2. **Correct Server Address** - Double-check the IP and port (default: 19132)
+3. **Broadcasting Active** - Verify NetherLink shows "Broadcasting" status
 
 **🔄 Quick Fixes:**
 • **Restart the app** - Stop broadcasting, close NetherLink completely, reopen and try again
@@ -23,13 +22,10 @@ If the server isn't appearing on your console, try these steps:
 **⚠️ Common Issues:**
 
 **"No route found for user"**
-→ Make sure the Bedrock username in your profile EXACTLY matches your console's Minecraft username
+→ (Update Me) Make sure your public ip matches your phones public ip.
 
 **"Unable to connect to NetherLink relay server"**
 → Check your internet connection - the relay server might be temporarily offline
-
-**"Please select a Bedrock profile first"**
-→ Go to profile settings and create a profile with your exact Minecraft username
 
 **Server appears but won't connect**
 → The target Minecraft server might be offline or unreachable - verify the server is online
