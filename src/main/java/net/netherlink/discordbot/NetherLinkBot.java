@@ -75,7 +75,7 @@ public class NetherLinkBot {
         List<Command> commands = new ArrayList<>();
         List<SlashCommand> slashCommands = new ArrayList<>();
         try {
-            Reflections reflections = new Reflections("org.geysermc.discordbot.commands");
+            Reflections reflections = new Reflections("net.netherlink.discordbot.commands");
             Set<Class<? extends Command>> subTypes = reflections.getSubTypesOf(Command.class);
             for (Class<? extends Command> theClass : subTypes) {
                 // Don't load SubCommands
