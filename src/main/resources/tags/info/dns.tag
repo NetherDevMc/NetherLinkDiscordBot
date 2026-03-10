@@ -21,4 +21,4 @@ aliases: switch, nintendo
    Tap **Send DNS Config**. NetherLink will send the configuration to its servers.
 
 6. **Join from your console**  
-   On your console, open **Minecraft** in the servers section. Some servers should display the MOTD "NetherLink RelayServer"; join any one of them.
+   Open **Minecraft** on your console and navigate to the servers section. You should see some servers with the MOTD "NetherLink RelayServer"; feel free to join any of them.
