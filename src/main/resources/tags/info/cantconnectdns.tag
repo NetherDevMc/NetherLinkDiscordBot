@@ -8,13 +8,14 @@ aliases: helpdns, ccd
 If the server isn't appearing on your console, try these steps:
 
 **✅ Basic Checks:**
-1. **Same WiFi Network** - Your phone/tablet and console MUST be on the same WiFi
-2. **Correct Server Address** - Double-check the IP and port (default: 19132)
-3. **Broadcasting Active** - Verify NetherLink shows "Broadcasting" status
+1. **Same WiFi Network** - Your phone/tablet and console MUST be on the same WiFi while sending the DNS config
+2. **Correct DNS** - Make sure your console DNS settings are correct
+3. **Correct Server Address** - Double-check the IP and port (default: 19132)
+4. **Config Sent** - Verify the DNS config was sent properly in the NetherLink app
 
 **🔄 Quick Fixes:**
 • **Restart the app** - Close NetherLink completely, reopen and try again
-• **Restart your console** - Sometimes the console needs a refresh to clear DNS cache
+• **Restart your console** - Sometimes the console needs a reboot to clear DNS cache
 • **Wait 10-15 seconds** - Give it time to appear
 • **Disable VPN** - VPNs can alter your dns servers
 
@@ -22,7 +23,7 @@ If the server isn't appearing on your console, try these steps:
 
 **"Joining the Featured Servers still directs to the actual servers and not to NetherLink Relay Server"**
 → Make sure the server you select has the MOTD "NetherLink RelayServer".
-→ Check if your currently connected network still has the DNS settings set to **217.77.15.138**.
+→ Check if your currently connected network still has the DNS settings configured to your selected NetherLink server.
 → Try reloading the featured server list a couple of times, as Minecraft itself can glitch when trying to load the featured server list. In Minecraft, hit B until your back to the main screen, then go back to servers. This will reload the featured servers tab.
 → Restart your game console to clear DNS cache.
 → You might have IPv6 enabled on your network, which can cause issues on Xbox and possibly other game consoles, as they don't support custom IPv6 DNS's to be set. Disable IPv6 on your router, if possible.
