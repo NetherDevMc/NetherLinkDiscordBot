@@ -1,17 +1,15 @@
-name: Build Discord Bot Universal JAR & Upload
+name: Auto "Latest" Release with JAR
 
 on:
   push:
-    branches: [ '**' ]
-  pull_request:
-    branches: [ '**' ]
+    branches:
+      - main   # of: master, of: '**' als je alle branches wilt
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Set up JDK 21
@@ -30,15 +28,19 @@ jobs:
           restore-keys: |
             gradle-${{ runner.os }}-
 
-      - name: Grant execute permissions to gradlew
+      - name: Make gradlew executable
         run: chmod +x ./gradlew
 
-      - name: Build your all-in-one JAR
+      - name: Build JAR
         run: ./gradlew clean jar
 
-      - name: Upload JAR as GitHub Artifact
-        uses: actions/upload-artifact@v4
+      - name: Create or update "latest" release and upload jar
+        uses: ncipollo/release-action@v1
         with:
-          name: NetherLinkBot
-          path: build/libs/NetherLinkBot.jar
-          retention-days: 90
+          tag: latest
+          name: "Latest Build"
+          artifacts: build/libs/NetherLinkBot.jar
+          allowUpdates: true
+          artifactErrorsFailBuild: true
+          replacesArtifacts: true
+          token: ${{ secrets.GITHUB_TOKEN }}
