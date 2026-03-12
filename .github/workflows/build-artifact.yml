@@ -3,7 +3,7 @@ name: Auto "Latest" Release with JAR
 on:
   push:
     branches:
-      - main   # of: master, of: '**' als je alle branches wilt
+      - master
 
 jobs:
   build:
