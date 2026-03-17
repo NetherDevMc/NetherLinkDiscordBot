@@ -183,6 +183,7 @@ public class NetherLinkBot {
                             new SwearHandler(),
                             new AutoModHandler(),
                             new LogHandler(),
+                            new ErrorAnalyzer(),
                             client.build(),
                             tagClient.build())
                     .build();
