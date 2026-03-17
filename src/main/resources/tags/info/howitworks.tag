@@ -3,7 +3,7 @@ aliases: hiw, howitwork
 
 ---
 
-**NetherLink — How it  works**
+**NetherLink — How it works**
 
 1. **Connecting to the broadcasted server**  
    Once you connect to the local/friends game, you are connected to the NetherLinks relay server.
