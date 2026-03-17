@@ -35,6 +35,7 @@ import net.netherlink.discordbot.tags.TagsManager;
 import net.netherlink.discordbot.util.BotColors;
 import net.netherlink.discordbot.util.BotHelpers;
 import net.netherlink.discordbot.util.MessageHelper;
+import org.jetbrains.annotations.NotNull;
 import pw.chew.chewbotcca.util.RestClient;
 import java.util.List;
 import java.util.*;
@@ -132,21 +133,21 @@ public class ErrorAnalyzer extends ListenerAdapter {
             embedBuilder.setDescription(content);
             event.getMessage().replyEmbeds(embedBuilder.build()).queue();
         } else {
-            embedBuilder.setTitle("Found errors in the log!");
+            embedBuilder.setTitle("Issue found!");
             embedBuilder.setDescription("See below for details and possible fixes");
             embedBuilder.setColor(BotColors.FAILURE.getColor());
             errorHandler(content, embedBuilder, event);
         }
     }
 
-    private void errorHandler(String error, EmbedBuilder embedBuilder, MessageReceivedEvent event) {
+    private void errorHandler(String error, @NotNull EmbedBuilder embedBuilder, MessageReceivedEvent event) {
         int embedLength = embedBuilder.length();
         for (String issue : TagsManager.getIssueResponses().keySet()) {
             if (embedLength >= MessageEmbed.EMBED_MAX_LENGTH_BOT || embedBuilder.getFields().size() >= 25) {
                 break;
             }
 
-            if (error.contains(issue)) {
+            if (error.toLowerCase().contains(issue.toLowerCase())) {
                 String title = BotHelpers.trim(issue, MessageEmbed.TITLE_MAX_LENGTH);
 
                 if (MessageHelper.similarFieldExists(embedBuilder.getFields(), title)) {
@@ -160,45 +161,8 @@ public class ErrorAnalyzer extends ListenerAdapter {
         }
 
         if (!embedBuilder.getFields().isEmpty()) {
-            // Set the description accordingly if nothing Geyser related was found
             MessageHelper.truncateFields(embedBuilder);
             event.getMessage().replyEmbeds(embedBuilder.build()).queue();
-        }
-    }
-
-    /**
-     * Add an issue and its fix to an {@link EmbedBuilder} if the fix exists, and the issue hasn't already been added
-     *
-     * @param issue The issue to find the fix for
-     * @param embedBuilder The embed builder to add to
-     * @return A positive integer equal to the size of the {@link MessageEmbed.Field} added to the {@link EmbedBuilder} if the issue wasn't already listed and a fix exists.
-     * Will return -2 if the issue was already listed. Will return -1 if the issue was not already listed and no fix was found.
-     */
-    private int addFixIfPresent(String issue, EmbedBuilder embedBuilder) {
-        // Cut down the issue so that comparisons to existing fields work
-        String fieldTitle = BotHelpers.trim(issue, MessageEmbed.TITLE_MAX_LENGTH);
-
-        if (MessageHelper.similarFieldExists(embedBuilder.getFields(), fieldTitle)) {
-            return -2;
-        }
-
-        String lowerCaseIssue = issue.toLowerCase();
-        String fix = null;
-        for (String key : TagsManager.getIssueResponses().keySet()) {
-            String lowerCaseKey = key.toLowerCase();
-            if (lowerCaseIssue.contains(lowerCaseKey)) {
-                fix = TagsManager.getIssueResponses().get(key);
-                break;
-            }
-        }
-
-        if (fix == null) {
-            return -1;
-        } else {
-            String response = BotHelpers.trim(fix, MessageEmbed.VALUE_MAX_LENGTH);
-
-            embedBuilder.addField(fieldTitle, response, false);
-            return fieldTitle.length() + response.length();
         }
     }
 }
