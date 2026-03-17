@@ -1,5 +1,5 @@
-/*
- * Copyright (c) 2020-2026 GeyserMC. http://geysermc.org
+package net.netherlink.discordbot;/*
+ * Copyright (c) 2020-2025 GeyserMC. http://geysermc.org
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,7 @@
  * @link https://github.com/GeyserMC/GeyserDiscordBot
  */
 
-package net.netherlink.discordbot;
-
+import com.algolia.api.SearchClient;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
 import com.jagrosh.jdautilities.command.SlashCommand;
@@ -44,6 +43,7 @@ import net.netherlink.discordbot.storage.StorageType;
 import net.netherlink.discordbot.tags.TagsListener;
 import net.netherlink.discordbot.tags.TagsManager;
 import net.netherlink.discordbot.util.PropertiesManager;
+import org.kohsuke.github.GitHub;
 import org.reflections.Reflections;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -58,6 +58,7 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.logging.FileHandler;
 
 public class NetherLinkBot {
     // Instance Variables
@@ -71,7 +72,6 @@ public class NetherLinkBot {
     private static JDA jda;
 
     static {
-        // Gathers all commands from "commands" package.
         List<Command> commands = new ArrayList<>();
         List<SlashCommand> slashCommands = new ArrayList<>();
         try {
@@ -104,8 +104,7 @@ public class NetherLinkBot {
                 slashCommands.add(theClass.getDeclaredConstructor().newInstance());
                 LoggerFactory.getLogger(theClass).debug("Loaded SlashCommand Successfully!");
             }
-        } catch (NoSuchMethodException | InstantiationException | IllegalAccessException |
-                 InvocationTargetException e) {
+        } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
             LOGGER.error("Unable to load commands", e);
         }
         COMMANDS = commands;
@@ -120,6 +119,9 @@ public class NetherLinkBot {
 
         // Initialize the waiter
         EventWaiter waiter = new EventWaiter();
+
+        // Load filters
+        SwearHandler.loadFilters();
 
         // Load the db
         StorageType storageType = StorageType.getByName(PropertiesManager.getDatabaseType());
@@ -145,6 +147,7 @@ public class NetherLinkBot {
         client.addCommands(COMMANDS.toArray(new Command[0]));
         client.addSlashCommands(SLASH_COMMANDS.toArray(new SlashCommand[0]));
         client.setListener(new CommandErrorHandler());
+        client.setCommandPreProcessBiFunction((event, command) -> !SwearHandler.filteredMessages.contains(event.getMessage().getIdLong()));
 
         // Setup the tag client
         CommandClientBuilder tagClient = new CommandClientBuilder();
@@ -156,6 +159,7 @@ public class NetherLinkBot {
         tagClient.useHelpBuilder(false);
         tagClient.addCommands(TagsManager.getTags().toArray(new Command[0]));
         tagClient.setListener(new TagsListener());
+        tagClient.setCommandPreProcessBiFunction((event, command) -> !SwearHandler.filteredMessages.contains(event.getMessage().getIdLong()));
         tagClient.setManualUpsert(true);
 
         // Disable pings on replies
@@ -176,14 +180,15 @@ public class NetherLinkBot {
                     .setActivity(Activity.playing("Booting..."))
                     .setEnableShutdownHook(true)
                     .addEventListeners(waiter,
+                            new LogHandler(),
+                            new SwearHandler(),
                             new PersistentRoleHandler(),
+                            new FileHandler(),
+                            new LevelHandler(),
+                            new ErrorAnalyzer(),
+                            new BadLinksHandler(),
                             new DeleteHandler(),
                             new AutoModHandler(),
-                            new LevelHandler(),
-                            new SwearHandler(),
-                            new AutoModHandler(),
-                            new LogHandler(),
-                            new ErrorAnalyzer(),
                             client.build(),
                             tagClient.build())
                     .build();
@@ -205,5 +210,12 @@ public class NetherLinkBot {
 
     public static ScheduledExecutorService getGeneralThreadPool() {
         return generalThreadPool;
+    }
+
+
+    public static void shutdown() {
+        storageManager.closeStorage();
+        generalThreadPool.shutdown();
+        System.exit(0);
     }
 }
