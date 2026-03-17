@@ -58,7 +58,6 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.logging.FileHandler;
 
 public class NetherLinkBot {
     // Instance Variables
@@ -183,7 +182,6 @@ public class NetherLinkBot {
                             new LogHandler(),
                             new SwearHandler(),
                             new PersistentRoleHandler(),
-                            new FileHandler(),
                             new LevelHandler(),
                             new ErrorAnalyzer(),
                             new BadLinksHandler(),
