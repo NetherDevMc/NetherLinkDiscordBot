@@ -42,8 +42,6 @@ public class BotCommandListener implements CommandListener {
     public void onSlashCommand(SlashCommandEvent event, SlashCommand command) {
     }
 
-    // Methods to capture errors and send them to sentry
-
     public void onCommandException(CommandEvent event, Command command, Throwable throwable) {
         // Default rethrow as a runtime exception.
         throw throwable instanceof RuntimeException? (RuntimeException)throwable : new RuntimeException(throwable);
