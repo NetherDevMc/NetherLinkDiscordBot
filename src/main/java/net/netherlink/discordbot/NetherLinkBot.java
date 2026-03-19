@@ -202,25 +202,15 @@ public class NetherLinkBot {
         jda.addEventListener();
 
         generalThreadPool.scheduleAtFixedRate(() -> {
-            JSONArray euMetrics = RestClient.get("https://eumetrics.netherlink.net/api/metrics").asJSONArray();
-            JSONArray usMetrics = RestClient.get("https://usmetrics.netherlink.net/api/metrics").asJSONArray();
 
-            int totalServers = 0;
-            int totalPlayers = 0;
+            JSONObject usMetrics = RestClient.get("https://usmetrics.netherlink.net/api/metrics").asJSONObject();
+            JSONObject euMetrics = RestClient.get("https://eumetrics.netherlink.net/api/metrics").asJSONObject();
 
-            for (Object obj : euMetrics) {
-                JSONObject region = (JSONObject) obj;
-                totalServers += region.optInt("totalServers", 0);
-                totalPlayers += region.optInt("totalPlayers", 0);
-            }
-            for (Object obj : usMetrics) {
-                JSONObject region = (JSONObject) obj;
-                totalServers += region.optInt("totalServers", 0);
-                totalPlayers += region.optInt("totalPlayers", 0);
-            }
+            int totalServers = usMetrics.getInt("totalServers") + euMetrics.getInt("totalServers");
+            int totalPlayers = usMetrics.getInt("totalCount") + euMetrics.getInt("totalCount");
 
             jda.getPresence().setActivity(
-                    Activity.playing(
+                    Activity.watching(
                             BotHelpers.coolFormat(totalServers) + " servers, " +
                                     BotHelpers.coolFormat(totalPlayers) + " players"
                     )
@@ -236,6 +226,7 @@ public class NetherLinkBot {
     public static ScheduledExecutorService getGeneralThreadPool() {
         return generalThreadPool;
     }
+
 
 
     public static void shutdown() {
