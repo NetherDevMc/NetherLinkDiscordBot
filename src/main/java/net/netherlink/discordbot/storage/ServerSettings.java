@@ -31,10 +31,10 @@ import net.dv8tion.jda.api.entities.channel.concrete.NewsChannel;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.entities.channel.middleman.GuildChannel;
 import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel;
-import org.apache.commons.lang3.StringUtils;
 import net.netherlink.discordbot.NetherLinkBot;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.sqlite.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;

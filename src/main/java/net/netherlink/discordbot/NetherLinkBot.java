@@ -23,7 +23,6 @@ package net.netherlink.discordbot;/*
  * @link https://github.com/GeyserMC/GeyserDiscordBot
  */
 
-import com.algolia.api.SearchClient;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
 import com.jagrosh.jdautilities.command.SlashCommand;
@@ -42,11 +41,14 @@ import net.netherlink.discordbot.storage.AbstractStorageManager;
 import net.netherlink.discordbot.storage.StorageType;
 import net.netherlink.discordbot.tags.TagsListener;
 import net.netherlink.discordbot.tags.TagsManager;
+import net.netherlink.discordbot.util.BotHelpers;
 import net.netherlink.discordbot.util.PropertiesManager;
-import org.kohsuke.github.GitHub;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.reflections.Reflections;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import pw.chew.chewbotcca.util.RestClient;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -58,6 +60,7 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class NetherLinkBot {
     // Instance Variables
@@ -198,7 +201,31 @@ public class NetherLinkBot {
         // Register listeners
         jda.addEventListener();
 
-        jda.getPresence().setActivity(Activity.watching("NetherDev Discord"));
+        generalThreadPool.scheduleAtFixedRate(() -> {
+            JSONArray euMetrics = RestClient.get("https://eumetrics.netherlink.net/api/metrics").asJSONArray();
+            JSONArray usMetrics = RestClient.get("https://usmetrics.netherlink.net/api/metrics").asJSONArray();
+
+            int totalServers = 0;
+            int totalPlayers = 0;
+
+            for (Object obj : euMetrics) {
+                JSONObject region = (JSONObject) obj;
+                totalServers += region.optInt("totalServers", 0);
+                totalPlayers += region.optInt("totalPlayers", 0);
+            }
+            for (Object obj : usMetrics) {
+                JSONObject region = (JSONObject) obj;
+                totalServers += region.optInt("totalServers", 0);
+                totalPlayers += region.optInt("totalPlayers", 0);
+            }
+
+            jda.getPresence().setActivity(
+                    Activity.playing(
+                            BotHelpers.coolFormat(totalServers) + " servers, " +
+                                    BotHelpers.coolFormat(totalPlayers) + " players"
+                    )
+            );
+        }, 5, 60 * 5, TimeUnit.SECONDS);
 
     }
 

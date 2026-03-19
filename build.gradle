@@ -1,7 +1,6 @@
 plugins {
     id 'java-library'
     id 'application'
-    alias libs.plugins.sentry
 }
 
 group 'net.netherlink.discordbot'
@@ -55,9 +54,6 @@ dependencies {
     // Parsing HTML
     implementation libs.jsoup
 
-    // Github API
-    implementation libs.github
-
     // Basic HTML templating engine
     implementation libs.freemarker
 
@@ -70,11 +66,6 @@ dependencies {
     // Reading RSS feeds
     implementation libs.rome
 
-    // Image processing and OCR
-    implementation libs.bundles.ocr
-
-    // Agolia Search (For Wiki)
-    implementation libs.algolia
 }
 
 jar {
@@ -111,9 +102,4 @@ test {
 java {
     sourceCompatibility = JavaVersion.VERSION_21
     targetCompatibility = JavaVersion.VERSION_21
-}
-
-sentry {
-    org = "netherdev"
-    projectName = "netherlinkdiscordbot"
 }
