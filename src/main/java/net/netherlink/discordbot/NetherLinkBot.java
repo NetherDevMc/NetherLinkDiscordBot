@@ -190,6 +190,7 @@ public class NetherLinkBot {
                             new BadLinksHandler(),
                             new DeleteHandler(),
                             new AutoModHandler(),
+                            new StartListener(),
                             client.build(),
                             tagClient.build())
                     .build();
