@@ -18,6 +18,7 @@ If the server isn't appearing on your console, try these steps:
 • **Check Friends/LAN tab** - The server appears under "Friends" or "LAN Games", NOT in server list
 • **Wait 10-15 seconds** - Give it time to appear after pressing Start
 • **Disable VPN** - VPNs can block local network broadcasts
+• **Enough battery** - Make sure your battery is above 15%, since some devices may block the broadcast when the battery is low
 
 **⚠️ Common Issues:**
 
