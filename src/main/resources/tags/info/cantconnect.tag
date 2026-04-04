@@ -9,8 +9,9 @@ If the server isn't appearing on your console, try these steps:
 
 **✅ Basic Checks:**
 1. **Same WiFi Network** - Your phone/tablet and console MUST be on the same WiFi
-2. **Correct Server Address** - Double-check the IP and port (default: 19132)
-3. **Broadcasting Active** - Verify NetherLink shows "Broadcasting" status
+2. **Enough battery** - Make sure your battery is above 15%, since some devices may block the broadcast when the battery is low
+3. **Correct Server Address** - Double-check the IP and port (default: 19132)
+4. **Broadcasting Active** - Verify NetherLink shows "Broadcasting" status
 
 **🔄 Quick Fixes:**
 • **Restart the app** - Stop broadcasting, close NetherLink completely, reopen and try again
@@ -18,7 +19,6 @@ If the server isn't appearing on your console, try these steps:
 • **Check Friends/LAN tab** - The server appears under "Friends" or "LAN Games", NOT in server list
 • **Wait 10-15 seconds** - Give it time to appear after pressing Start
 • **Disable VPN** - VPNs can block local network broadcasts
-• **Enough battery** - Make sure your battery is above 15%, since some devices may block the broadcast when the battery is low
 
 **⚠️ Common Issues:**
 
