@@ -10,7 +10,7 @@ If the server isn't appearing on your console, try these steps:
 **✅ Basic Checks:**
 1. **Same WiFi Network** - Your phone/tablet and console MUST be on the same WiFi while sending the DNS config
 2. **Correct DNS** - Make sure your console DNS settings are correct
-3. **Xbox/PlayStation/Nintendo Subscription** – Xbox/PlayStation/Nintendo requires you to have a subscription to play online
+3. **Online Multiplayer Subscription** - Xbox requires an online multiplayer subscription, PlayStation requires PlayStation Plus, and Nintendo Switch requires Nintendo Switch Online, to connect to online multiplayer servers
 4. **Correct Server Address** - Double-check the IP and port (default: 19132)
 5. **Config Sent** - Verify the DNS config was sent properly in the NetherLink app
 
