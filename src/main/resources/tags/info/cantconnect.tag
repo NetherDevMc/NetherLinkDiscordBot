@@ -10,7 +10,7 @@ If the server isn't appearing on your console, try these steps:
 **✅ Basic Checks:**
 1. **Same WiFi Network** - Your phone/tablet and console MUST be on the same WiFi
 2. **Enough Battery** - Make sure your battery is above 15%, since some devices may block the broadcast when the battery is low
-3. **Xbox/PlayStation Subscription** – Xbox/PlayStation requires you to have a subscription to play online
+3. **Online Multiplayer Subscription** - Xbox requires an online multiplayer subscription, and PlayStation requires PlayStation Plus, to connect to online multiplayer servers
 4. **Correct Server Address** - Double-check the IP and port (default: 19132)
 5. **Broadcasting Active** - Verify NetherLink shows "Broadcasting" status
 
