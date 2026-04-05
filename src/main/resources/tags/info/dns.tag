@@ -15,7 +15,7 @@ aliases: switch, nintendo
    Enter the **server address** *(IP or domain)* and **port** *(default: **19132**)*, or pick one from your saved/recommended servers.
 
 4. **Select a server and select Nintendo as the mode**
-   Tap on the server you prefer  and select **Nintendo**.
+   Tap on the server you prefer and select **Nintendo**.
 
 5. **Start Nintendo Mode**  
    Tap **Start Nintendo Mode**. NetherLink will send the configuration to its servers.
