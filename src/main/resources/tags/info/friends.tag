@@ -6,7 +6,7 @@ aliases: friend, fd
 **NetherLink Friends — How to use**
 
 1. **Connect everything to the same network**
-   Make sure your phone/tablet running NetherLink and your console are on the **same Wi‑Fi** *(avoid Guest Wi‑Fi if possible)* while sending the DNS config.
+   Make sure your phone/tablet running NetherLink and your console are on the **same Wi‑Fi** *(avoid Guest Wi‑Fi if possible)* while using NetherLink Friends.
    
 2. **Open NetherLink**
    Launch the app on your phone or tablet.
