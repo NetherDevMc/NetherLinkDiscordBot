@@ -17,16 +17,16 @@ If the server isn't appearing on your console, try these steps:
 • **Restart the app** - Close NetherLink completely, reopen and try again
 • **Restart your console** - Sometimes the console needs a reboot to clear DNS cache
 • **Wait 10-15 seconds** - Give it time to appear
-• **Disable VPN** - VPNs can alter your dns servers
+• **Disable VPN** - VPNs can alter your DNS servers
 
 **⚠️ Common Issues:**
 
 **"Joining the Featured Servers still directs to the actual servers and not to NetherLink Relay Server"**
 → Make sure the server you select has the MOTD "NetherLink RelayServer".
 → Check if your currently connected network still has the DNS settings configured to your preferred NetherLink server.
-→ Try reloading the featured server list a couple of times, as Minecraft itself can glitch when trying to load the featured server list. In Minecraft, hit B until your back to the main screen, then go back to servers. This will reload the featured servers tab.
+→ Try reloading the featured server list a couple of times, as Minecraft itself can glitch when trying to load the featured server list. In Minecraft, hit B until you're back to the main screen, then go back to servers. This will reload the featured servers tab.
 → Restart your game console to clear DNS cache.
-→ You might have IPv6 enabled on your network, which can cause issues on Xbox and possibly other game consoles, as they don't support custom IPv6 DNS's to be set. Disable IPv6 on your router, if possible.
+→ You might have IPv6 enabled on your network, which can cause issues on Xbox and possibly other game consoles, as they don't support custom IPv6 DNS settings to be set. Disable IPv6 on your router, if possible.
 → Your network might be blocking the DNS. In which case, you can try setting the DNS directly in your router's settings. Where to set this would depend on what brand of router you have. (e.g. Netgear, TP-Link, etc) You can try googling "[your router brand here] router how to set dns in router settings".
   
 

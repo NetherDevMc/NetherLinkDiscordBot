@@ -333,7 +333,7 @@ public class BotHelpers {
     }
     /**
      * Check if a moderator can target a member
-     * Also covered the bots permissions
+     * Also covers the bot's permissions
      *
      * @param moderator The moderator performing the action
      * @param member The member to target
