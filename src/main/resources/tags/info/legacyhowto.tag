@@ -21,7 +21,7 @@ aliases: lnetherlink, lht
    Tap **Start** *(Start Broadcasting)*. NetherLink will create a local **LAN game** entry for your console.
 
 6. **Join from your console**
-   On your console, open **Minecraft → Play → Friends/worlds** and look for a **LAN Game** Netherlink. Tap it to connect.
+   On your console, open **Minecraft → Play → Friends/worlds** and look for a **LAN Game** NetherLink. Tap it to connect.
 
 7. **Stop when you’re done**
    When finished, return to NetherLink and tap **Stop** to end the broadcast.

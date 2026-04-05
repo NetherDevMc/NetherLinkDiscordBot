@@ -24,4 +24,4 @@ aliases: friend, fd
    Add the username you were given on the Xbox network.
 
 7. **Join from your console**  
-   Open **Minecraft** on your console and navigate to the friends section. You should see the user you added, join their game.
+   Open **Minecraft** on your console and navigate to the friends section. You should see the user you added. Join their game.
