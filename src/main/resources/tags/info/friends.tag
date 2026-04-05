@@ -20,8 +20,8 @@ aliases: friend, fd
 5. **Start Friends Mode**  
    Tap **Start Friends Mode**. NetherLink will send the configuration to its servers.
 
-6. **Add the bot**  
-   Add the username you were given on the Xbox network.
+6. **Add the bot as a friend on Xbox**  
+   Copy the **gamertag** shown in the NetherLink app and add it as a friend on the **Xbox network** *(via the Xbox app or your console's friends list)*.
 
 7. **Join from your console**  
    Open **Minecraft** on your console and navigate to the friends section. You should see the user you added. Join their game.
