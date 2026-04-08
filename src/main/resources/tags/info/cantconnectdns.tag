@@ -13,7 +13,7 @@ If the server isn't appearing on your console, try these steps:
 3. **Online Multiplayer Subscription** - Xbox requires an online multiplayer subscription, PlayStation requires PlayStation Plus, and Nintendo Switch requires Nintendo Switch Online, to connect to online multiplayer servers
 4. **Correct Server Address** - Double-check the IP and port (default: 19132)
 5. **Config Sent** - Verify the DNS config was sent properly in the NetherLink app
-6. **Accepts Bedrock Players** - Make sure the server you are trying to connect to allows Bedrock players to connect, we don't support Java-only servers yet.
+6. **Accepts Bedrock Players** - Make sure the server you are trying to connect to allows Bedrock players to connect, we don't support Java-only servers yet
 
 **🔄 Quick Fixes:**
 • **Restart the app** - Close NetherLink completely, reopen and try again
