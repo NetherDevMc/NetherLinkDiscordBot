@@ -1,16 +1,12 @@
 type: text
 aliases: geysermc, whatisgeyser
-title: What is GeyserMC?
-color: neutral
-button: [GeyserMC Website](https://geysermc.org)
-button: [GeyserMC Wiki](https://wiki.geysermc.org)
 
 ---
 
 **GeyserMC** is an open-source protocol translation layer that allows **Minecraft: Bedrock Edition** clients (consoles, mobile, Windows 10/11) to connect to **Minecraft: Java Edition** servers.
 
 **Why is GeyserMC required?**
-NetherLink redirects your console or mobile device to a Java Edition server. Because Bedrock and Java Edition use different network protocols, the server needs GeyserMC installed to understand and communicate with Bedrock clients. Without GeyserMC (or a similar bridge), Bedrock players will be refused or immediately disconnected by the Java server.
+NetherLink redirects your console or mobile device to a Bedrock Edition server. Because Bedrock and Java Edition use different network protocols, the server needs GeyserMC installed to understand and communicate with Bedrock clients. Without GeyserMC (or a similar bridge), the Java server won't be listening for Bedrock connections.
 
 **In short:**
 - ✅ Server **has** GeyserMC → Bedrock players can join normally.
