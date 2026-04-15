@@ -3,6 +3,8 @@ aliases: jv
 
 ---
 
+⚠️ Packet translation may not be perfect. It could trigger the server’s anti-cheat system and result in a ban. We are not responsible in such cases.
+
 **NetherLink Java — How to use**
 
 1. **Connect everything to the same network**
